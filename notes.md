@@ -98,3 +98,20 @@
 ### **OS Threads Vs Goroutines**
 ![image](./images/05-webserver-thread-vs-goroutines.png)
 ----
+
+## Go Concurrency
+- Concurrency support is offered through the `language`
+- Built-in scheduler (works based on `cooperative multitasking`)
+- Language Features
+    - `go` keyword
+    - `chan` data type
+    - `<-` operator
+    - `range` keyword
+    - `select-case` construct
+- Standard Library support
+    - `sync` package
+    - `sync/atomic` package
+
+### sync.WaitGroup
+- Semaphore based counter
+- It has the ability to block the execution of a function until the counter becomes 0
