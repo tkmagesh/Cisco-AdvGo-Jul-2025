@@ -76,3 +76,25 @@
 
 ### Interface
 
+## Concurrency
+- Concurrency is NOT parallelism
+- Design of the application in such a way the app has more than one execution path
+- Typically achieved using OS Threads
+- OS Threads are very costly (1 OST = ~2MB)
+
+### **Cooperative Multitasking**
+![image](./images/01-cooperative.png)
+----
+
+### **Preemptive Multitasking**
+![image](./images/02-preemptive.png)
+----
+### **Web Server (Concurrency Example)**
+![image](./images/03-webserver-concurrency.png)
+----
+### **Go Concurrency Model**
+![image](./images/04-go-concurrency.png)
+----
+### **OS Threads Vs Goroutines**
+![image](./images/05-webserver-thread-vs-goroutines.png)
+----
