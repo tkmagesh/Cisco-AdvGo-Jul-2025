@@ -59,6 +59,10 @@
 ## Recap
 ### iota
     - Auto generation of constants
-    
+### Higher Order Functions
+- Can also treat functions as `data`
+    - Assign functions as values to variables
+    - Pass functions as arguments
+    - Return functions as return values
 
 
