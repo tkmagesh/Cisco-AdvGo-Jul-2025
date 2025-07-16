@@ -1,4 +1,3 @@
-package recap
 package main
 
 import (
@@ -47,7 +46,9 @@ func PrintArea(x interface{}) {
 }
 */
 
-func PrintArea(x interface{ Area() float64 }) {
+type AreaFinder interface{ Area() float64 }
+
+func PrintArea(x AreaFinder) {
 	fmt.Println("Area :", x.Area())
 }
 
@@ -60,15 +61,18 @@ func (r Rectangle) Perimeter() float64 {
 	return 2 * (r.Height + r.Width)
 }
 
-func PrintPerimeter(x interface{ Perimeter() float64 }) {
+type PerimeterFinder interface{ Perimeter() float64 }
+
+func PrintPerimeter(x PerimeterFinder) {
 	fmt.Println("Perimeter :", x.Perimeter())
 }
 
-func PrintShape(x interface {
-	interface{ Area() float64 }
-	interface{ Perimeter() float64 }
-}) {
+type ShapeStatsFinder interface {
+	AreaFinder
+	PerimeterFinder
+}
 
+func PrintShape(x ShapeStatsFinder) {
 	PrintArea(x)      // x should be interface{ Area() float64 }
 	PrintPerimeter(x) // x should be interface{ Perimeter() float64 }
 }
