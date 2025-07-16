@@ -65,4 +65,13 @@
     - Pass functions as arguments
     - Return functions as return values
 
+### Panic & Recovery
+#### Panic
+- State of the application where the application execution cannot proceed further
+- Use `panic()` function to raise application specific panics
+- Typically, the runtime attempts to shutdown the app when a panic occurs AFTER executing all the deferred functions
+#### Recover
+- Use `recover()` function to recover from the panic (to prevent the application from shutting down)
+- Apt to use the `recover()` in `deferred` functions
+
 
