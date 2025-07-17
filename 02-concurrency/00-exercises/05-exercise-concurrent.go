@@ -1,5 +1,5 @@
 /*
-Update the following in such a way that the "printing" of the prime numbers happen in the "main" function
+Update the followin to use "Share memory by communicating i.e., channels" instead of "communicate by sharing memoery"
 */
 
 package main
