@@ -115,3 +115,33 @@
 ### sync.WaitGroup
 - Semaphore based counter
 - It has the ability to block the execution of a function until the counter becomes 0
+
+### Channel
+- data type supported by the language to enable communication between goroutines
+- "Share memory by communicating" strategy
+#### Declaration
+```go
+var ch chan int
+```
+#### Initialization
+```go
+ch = make(chan int)
+```
+#### Declaration & Initialization
+```go
+var ch chan int = make(chan int)
+// OR
+var ch = make(chan int)
+// OR
+ch := make(chan int)
+```
+#### Send Operation (using <- operator)
+```go
+ch <- 100
+```
+#### Receive Operation (using <- operator)
+```go
+data := <-ch
+```
+
+
