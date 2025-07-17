@@ -23,4 +23,6 @@ func main() {
 	}()
 	data := <-ch // (1.B)(3.UB)
 	fmt.Println(data)
+
+	// create a new version where the "receive" op is performed ina goroutine
 }
