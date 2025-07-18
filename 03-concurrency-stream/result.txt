@@ -1,0 +1,2 @@
+Odd Total : 850
+Even Total : 450
