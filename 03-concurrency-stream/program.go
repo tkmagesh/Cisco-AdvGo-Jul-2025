@@ -98,14 +98,32 @@ func Merger(oddSumCh <-chan int, evenSumCh <-chan int, resultFile string) <-chan
 		}
 		defer file.Close()
 
-		for range 2 {
-			select {
-			case evenSum := <-evenSumCh:
-				fmt.Fprintf(file, "Even Total : %d\n", evenSum)
-			case oddSum := <-oddSumCh:
-				fmt.Fprintf(file, "Odd Total : %d\n", oddSum)
-			}
-		}
+		/*
+			for range 2 {
+				select {
+				case evenSum := <-evenSumCh:
+					fmt.Fprintf(file, "Even Total : %d\n", evenSum)
+				case oddSum := <-oddSumCh:
+					fmt.Fprintf(file, "Odd Total : %d\n", oddSum)
+				}
+			} */
+
+		wg := &sync.WaitGroup{}
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			evenSum := <-evenSumCh
+			fmt.Fprintf(file, "Even Total : %d\n", evenSum)
+		}()
+
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			oddSum := <-oddSumCh
+			fmt.Fprintf(file, "Odd Total : %d\n", oddSum)
+		}()
+
+		wg.Wait()
 		close(doneCh)
 	}()
 	return doneCh
