@@ -171,5 +171,11 @@ data := <-ch
             - returns a context
             - non-cancellable
             - used for sharing data across context hierarchies
-            
+
 ## Database Programming
+### database/sql package
+### sqlx
+    - high level apis abstracting all the low level complexities of database/sql
+### sqlc
+    - code generator
+    
